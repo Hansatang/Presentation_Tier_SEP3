@@ -1,0 +1,82 @@
+﻿@using Presentation_Tier_SEP3.Authentication
+@using Presentation_Tier_SEP3.Data.Notifications
+@using Presentation_Tier_SEP3.Data.Notifications.NotificationModel
+
+@inject AuthenticationStateProvider _authenticationStateProvider
+@inject NavigationManager _navigationManager
+@inject NotificationManager _notificationManager
+
+<AuthorizeView>
+    <NotAuthorized>
+        <br/>
+        <div class="d-flex justify-content-center">
+            <aside class="col-sm-4 " style="alignment: center">
+                <div class=" card ">
+                    <article class="card-body ">
+                        <header class="card-header">
+                            <h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
+                        </header>
+                        <br/>
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="form-group">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text h-100">
+                                            <i class="far fa-user iconClass"></i>
+                                        </span>
+                                    </div>
+                                    <input class="form-control" placeholder="Username" type="text" @bind-value="_username"/>
+                                </div> <!-- input-group.// -->
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text h-100">
+                                            <i class="fas fa-lock iconClass"></i>
+                                        </span>
+                                    </div>
+                                    <input class="form-control" placeholder="******" type="password" @bind-value="_password"/>
+                                </div> <!-- input-group.// -->
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block" @onclick="PerformLogin"> Login </button>
+                            </div> <!-- form-group// -->
+                            <div id="register-link" class="text-right">
+                                <a href="#" @onclick="Register">Register here</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </aside>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    //Declaring instance variables
+    private string _username;
+    private string _password;
+    
+    // To perform an asynchronous operation we override OnInitializedAsync 
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
+
+    //Method for pefroming login
+    public async Task PerformLogin()
+    {
+        Notification notification = await ((CustomAuthenticationStateProvider) _authenticationStateProvider).ValidateLogin(_username, _password);
+        _notificationManager.Show(notification);
+        _navigationManager.NavigateTo("/");
+        _username = "";
+        _password = "";
+    }
+
+    //Navigate to new page to register
+    public void Register()
+    {
+        _navigationManager.NavigateTo("/Register");
+    }
+
+}

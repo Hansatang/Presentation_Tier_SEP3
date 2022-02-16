@@ -1,0 +1,132 @@
+@import '';
+
+/* _content/Presentation_Tier_SEP3/Shared/MainLayout.razor.rz.scp.css */
+.page[b-fswly6uhw7] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main[b-fswly6uhw7] {
+    flex: 1;
+    background-color: whitesmoke;
+}
+
+.sidebar[b-fswly6uhw7] {
+    background-color: steelblue;
+}
+
+.top-row[b-fswly6uhw7] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-fswly6uhw7]  a, .top-row .btn-link[b-fswly6uhw7] {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+    }
+
+    .top-row a:first-child[b-fswly6uhw7] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-fswly6uhw7] {
+        display: none;
+    }
+
+    .top-row.auth[b-fswly6uhw7] {
+        justify-content: space-between;
+    }
+
+    .top-row a[b-fswly6uhw7], .top-row .btn-link[b-fswly6uhw7] {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-fswly6uhw7] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-fswly6uhw7] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-fswly6uhw7] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .main > div[b-fswly6uhw7] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* _content/Presentation_Tier_SEP3/Shared/NavMenu.razor.rz.scp.css */
+/*.navbar-toggler {*/
+/*    background-color: black;*/
+/*}*/
+
+/*.top-row {*/
+/*    height: 3.5rem;*/
+/*    background-color: rgba(0, 0, 0, 0.4);*/
+/*}*/
+
+/*.navbar-brand {*/
+/*    font-size: 1.1rem;*/
+/*}*/
+
+/*.oi {*/
+/*    width: 2rem;*/
+/*    font-size: 1.1rem;*/
+/*    vertical-align: text-top;*/
+/*    top: -2px;*/
+/*}*/
+
+
+
+/* _content/Presentation_Tier_SEP3/Shared/NotificationComponent.razor.rz.scp.css */
+.notification-body[b-nduysgalba]{
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    padding:20px;
+    width: 30vw;
+    border-radius: 15px;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    color: white;
+}
+
+.notification-visible[b-nduysgalba]{
+    display: flex;
+}
+
+.notification-hidden[b-nduysgalba]{
+    display: none;
+}
+
+.notification-title[b-nduysgalba]{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.notification-content[b-nduysgalba]{
+    font-size: 16px;
+}

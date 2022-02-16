@@ -1,0 +1,7 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="_content/Quick.AspNetCore.Components.Web.Extensions" Path="C:\Users\krzys\.nuget\packages\quick.aspnetcore.components.web.extensions\5.0.0\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor.Buttons" Path="C:\Users\krzys\.nuget\packages\syncfusion.blazor.buttons\19.3.0.56\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor.Core" Path="C:\Users\krzys\.nuget\packages\syncfusion.blazor.core\19.3.0.56\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor.Themes" Path="C:\Users\krzys\.nuget\packages\syncfusion.blazor.themes\19.3.0.56\build\..\staticwebassets\" />
+  <ContentRoot BasePath="/" Path="C:\Users\krzys\RiderProjects\Presentation_Tier_SEP3\Presentation_Tier_SEP3\obj\Debug\net5.0\scopedcss\bundle\" />
+</StaticWebAssets>

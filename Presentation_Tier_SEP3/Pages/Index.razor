@@ -1,0 +1,44 @@
+@page "/"
+
+@using Presentation_Tier_SEP3.Component
+@using Presentation_Tier_SEP3.Data.GroupData
+@using Presentation_Tier_SEP3.Data.NoteData
+@using Presentation_Tier_SEP3.Data.Notifications
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
+@using Presentation_Tier_SEP3.Data.InvitationData
+
+@inject IGroupService _groupService
+@inject IInvitationService _invitationService
+@inject INoteService _noteService
+@inject NavigationManager _navigationManager;
+@inject AuthenticationStateProvider _authenticationStateProvider
+@inject NotificationManager _notificationManager
+
+<Title Value="Homepage"></Title>
+
+<LoginComponent></LoginComponent>
+<AuthorizeView >
+    <div class="row d-flex justify-content-between">
+        <div class="col-sm-5" style="background-color: white">
+            <GroupListComponent UserID=@context.User.FindFirst("id").Value></GroupListComponent>
+            <br>
+        </div>
+        <div class="col-sm-5" style="background-color: white">
+            <InvitationsComponent UserId=@context.User.FindFirst("id").Value></InvitationsComponent>
+        </div>
+    </div>
+    <br/>
+</AuthorizeView>
+
+@code
+{
+    //Instance variables
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+    
+    // Method to run, when user enters this page.
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
+}
